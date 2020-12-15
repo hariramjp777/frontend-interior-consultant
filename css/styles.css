@@ -1,0 +1,29 @@
+:root {
+  --bg: #181719;
+  --gray: #828282;
+  --white: #ffffff;
+  --mt: "Montserrat", sans-serif;
+  --lora: "Lora", serif;
+  --cp: "Crimson Pro", serif;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 62.5%;
+  position: relative;
+}
+
+html,
+body {
+  height: 100%;
+}
+
+body {
+  background-color: var(--bg);
+  width: calc(100% - (clamp(1px, 6vw, 77px) * 2));
+}
