@@ -71,11 +71,11 @@ main .hero-left {
 }
 
 main .hero-left h2 {
-  font: 400 clamp(3.9rem, 3.6vw, 5.3rem) var(--lora);
+  font: 400 clamp(3.9rem, 3.6vw, 7.1rem) var(--lora);
 }
 
 main .hero-left p {
-  font: 300 clamp(2.1rem, 1.7vw, 3.3rem) var(--mt);
+  font: 300 clamp(2.1rem, 1.7vw, 4.5rem) var(--mt);
   margin: 4rem 0;
   line-height: 1.4;
 }
@@ -88,17 +88,18 @@ main .hero-left .r-more {
 
 main .hero-right {
   width: 60%;
-  height: 55rem;
-  height: 38vw;
+  /* height: min(38vw, 80rem); */
+  height: 41.5vw;
   background-image: url("../assets/images/photo1.png");
-  background-size: cover;
+  background-repeat: no-repeat;
+  background-size: contain;
   position: relative;
 }
 
 main .hero-right .profile-tooltip {
   position: absolute;
   width: 41rem;
-  /* height: 18.9rem; */
+  overflow: hidden;
   background-color: var(--bg);
   bottom: -10rem;
   right: 5%;
@@ -138,16 +139,88 @@ main .hero-right .profile-tooltip h4 {
   line-height: 1.5;
 }
 
+.nav-button {
+  background: transparent;
+  color: var(--white);
+  font: 600 3rem var(--mt);
+  border: 0;
+  outline: 0;
+  /* padding: 0.5rem; */
+  position: relative;
+  z-index: 2;
+  display: none;
+}
+
 @media (max-width: 1000px) {
   main {
     flex-direction: column;
     gap: 6rem;
+    margin: 0;
   }
   main .hero-left {
     width: 100%;
   }
   main .hero-right {
     width: 100%;
-    height: 55rem;
+    height: 66vw;
   }
+  .nav-button {
+    display: initial;
+  }
+  header nav {
+    display: none;
+  }
+}
+
+@media (max-width: 516px) {
+  main .hero-right .profile-tooltip {
+    width: 90%;
+    padding: 2rem;
+  }
+  main .hero-right .profile-tooltip h4 {
+    font-size: clamp(1.6rem, 4.8vw, 2.4rem);
+  }
+}
+
+@media (max-width: 491px) {
+  main .hero-left h2 {
+    font-size: 9.5vw;
+  }
+  main .hero-left p {
+    font-size: 6vw;
+  }
+}
+
+.mobile {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 100%;
+  background-color: var(--bg);
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  animation: come-from-left 0.5s forwards ease;
+}
+
+@keyframes come-from-left {
+  100% {
+    left: 0;
+  }
+}
+
+.mobile ul {
+  display: block;
+  width: 100%;
+  text-align: center;
+}
+
+.mobile ul li {
+  padding: 3rem 0;
+}
+
+.mobile ul li .nav-link {
+  font-size: 3rem;
 }
